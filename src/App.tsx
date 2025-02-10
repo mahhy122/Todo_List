@@ -67,10 +67,22 @@ export const App = () => {
     });
     
   };
+  const handleFilter = (filter:Filter) => {
+    setFilter(filter);
+  };
   
 
   return (
     <div>
+      <select
+        defaultValue= "all"
+        onChange={(e) => handleFilter(e.target.value as Filter)}
+        >
+          <option value ="all">すべてのタスク</option>
+          <option value ="all">完了したタスク</option>
+          <option value ="unchecked">現在のタスク</option>
+          <option value ="removed">ゴミ箱</option>
+        </select>
       <form 
         onSubmit={(e) => {
           e.preventDefault();
